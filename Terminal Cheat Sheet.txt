@@ -20,39 +20,51 @@ rmdir       # remove directory
 
 
 
-
-
 ## Working with Git
 
+
 ### Quick Start
-git clone <url> 					# Clone directory
-git checkout -b <new-branch> 		# Create new local branch
-git push -u origin <new-branch> 	# Sync local branch with remote
-git checkout <branch> 				# Checkout branch
-git push origin <branch> 			# Push branch to remote
 
-git branch -d <branchname>   	# deletes local branch
-git push origin :<branchname>	# deletes remote branch
-
-git subtree push --prefix docs origin gh-pages  # push docs as subtree to gh-pages
+git clone <url> 					                # Clone directory
+git checkout -b <new-branch> 		                # Create new local branch
+git push -u origin <new-branch> 	                # Sync local branch with remote
+git checkout <branch> 				                # Checkout branch
+git push origin <branch> 			                # Push branch to remote
+git branch -d <branchname>   	                    # deletes local branch
+git push origin :<branchname>	                    # deletes remote branch
+git subtree push --prefix docs origin gh-pages      # push docs as subtree to gh-pages
 
 
 
 ### Clone Directory
+
 git clone <url>
 
 
+### Create Project 
 
-### Create Project
 cd project/
-git init                    # initializes the repository
-git add .                   # add those 'unknown' files
-git commit                  # commit all changes, edit changelog entry
-git rm --cached <file>...   # ridiculously complicated command to undo, in case you forgot .gitignore
+git init                       # initializes the repository
+git add .                      # add all files and folder from selected folder
+git add file_1 file_2          # add specific files and folder
+git status                     # check status of files and folder 
+git commit -m "first commit"   # commit all changes, edit changelog entry
+git remote add origin <url>    # paste url of repository
+
+git push -u origin master/main # push from local machine to github ,Here <master> branch name where we wnat to push # # code #user credentials required to proceed further.  #                                  username and password or use token to varify account. 
+
+
+…or push an existing repository from the command line.
+
+git remote add origin <url>
+git branch -M main
+git push -u origin main 
+git rm --cached <file>...      # ridiculously complicated command to undo, in case you forgot .gitignore
 
 
 
 ### Branching and Merging
+
 git branch                          # show list of all branches (* is active)
 git checkout -b linux-work          # create a new branch named "linux-work"
 <make changes>
@@ -65,7 +77,8 @@ git branch -m <newname>             # rename current branch
 
 
 
-### Delete Project
+### Delete Project 
+
 git branch -d <branchname>   	# deletes local branch
 git push origin :<branchname>	# deletes remote branch
 git remote prune <branchname>	# update local/remote sync
@@ -81,18 +94,19 @@ git remote -v 									# Check upstream
 git fetch upstream 								# Get original repo
 git checkout development						# Switch to main branch in local fork
 git merge upstream/development					# Merge original with fork
-
 git diff --name-only | uniq | xargs subl		# Fix conflicts in Sublime Text
 
 
 
 ### Importing Patches
+
 git apply < ../p/foo.patch
 git commit -a
 
 
 
 ### Exporting Patches
+
 <make changes>
 git commit -a -m "commit message"
 git format-patch HEAD^  # creates 0001-commit-message.txt
