@@ -1,1 +1,1 @@
-command for push code on github 
+command to  push code on github 
