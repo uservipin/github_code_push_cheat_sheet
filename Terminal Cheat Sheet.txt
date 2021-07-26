@@ -83,6 +83,22 @@ git branch -d <branchname>   	# deletes local branch
 git push origin :<branchname>	# deletes remote branch
 git remote prune <branchname>	# update local/remote sync
 
+# delete file 
+
+#Use git rm
+# If you want to remove the file from the Git repository and the filesystem, use: 
+# open terminal in project folder 
+
+git rm file1.txt
+git commit -m "remove file1.txt"
+
+# But if you want to remove the file only from the Git repository and not remove it from the filesystem, use:
+git rm --cached file1.txt
+git commit -m "remove file1.txt" 
+
+# then push changes 
+git push origin branch_name
+
 
 
 ### Merging Upstream
