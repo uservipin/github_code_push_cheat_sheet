@@ -165,3 +165,4 @@ git config --global core.editor "subl -n -w"
 ### If that's not working
 sudo rm -rf /usr/local/bin/subl
 sudo ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin
+  
